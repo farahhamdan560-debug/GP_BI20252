@@ -180,13 +180,24 @@ Insight for Procurement Optimization: The historical gap between Entered Quantit
 
 
 
-## [**Data Primary Cleaning and Transformation**](docs/documentation.md#data-primary-cleaning-and-transformation)
-Describe all data preparation steps in sequence:
-- Data type conversions
-- Handling missing values
-- Merging datasets
-- Aggregation and appending
-- Any other transformations applied
+## [**Data Primary Cleaning and Transformation**](docs/documentation.md#data-primary-cleaning-and-transformation) 
+cleaning and transformation process phase done by knime.
+1. Data Ingestion
+Node: Excel Reader   
+Action: The workflow begins by importing the raw data directly from an Excel spreadsheet.
+2. Column-Level Filtering
+Column-Level FilteringNode: Column Filter 
+Action:  based on this node it excluded the column of اسم المستخدم from the excel table ,Because it contains a single, repeated value for all rows, which is (admin), it does not add any analytical value, which helps to make the data size smaller and easier to handle.
+3. Text & Data Cleansing (Transformations)
+Node: String Manipulation  
+Action: in the expression box by the rule of strip("اسم الدواء") ,it cleans the column  of اسم الدواء from  extra spaces To ensure that the same medication is not repeated due to an empty space.
+4. Data Type Conversions
+Node: String to Date_Time 
+Action: This is applied to the "Expiry Date" and "Entry Date" columns. This conversion is very important because without this node the program will treat the date as just words, while after this node it will be able in the future to calculate time differences and know how many days or months are left until the expiry of the medicines.
+5. Row-Level Filtering (Handling Values/Rules)
+Node: Rule_based Row Filter  
+Action:This step ensures that any movements or rows entered incorrectly into the system are excluded (such as the quantity remaining in the warehouse being greater than the quantity that originally entered the pharmacy), by appling this crietira ($الكمية المتبقية$ > $الكمية المدخله$ => FALSE
+TRUE => TRUE )
 
 ## [**Data Visualization and Insights**](docs/documentation.md#data-visualization-and-insights)
 - Include relevant charts and describe each one
