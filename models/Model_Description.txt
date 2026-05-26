@@ -1,0 +1,18 @@
+model description:
+In this project, advanced analytical and data models were implemented 
+directly within the Business Intelligence environment to support decision-making:
+
+1. Predictive Modeling (Time Series Forecasting):
+   - Purpose: Applied to forecast future product demand and optimal stock levels based on historical sales trends.
+   - Technology: Power BI Built-in Forecasting Engine.
+
+2. Descriptive Modeling (Cluster Analysis):
+   - Purpose: Used to segment and classify inventory items into distinct groups based on their movement patterns and sales behavior.
+   - Technology: Power BI Clustering Segmentation.
+3. Data Preparation & ETL Workflow:
+   - Purpose: Performed advanced data cleaning, preparation, and transformation pipelines before feeding the data into the system.
+   - Technology: KNIME Analytics Platform.
+
+* Note: 
+All analytical models and visualization layers are fully integrated 
+and saved within the main Power BI dashboard file (.pbix).
